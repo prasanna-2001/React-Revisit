@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+// import TextForm from './
 import PropTypes from 'prop-types'
 export default function Navbar(props) {
+    const [buttonState, setButtonState] = useState("Dark");
+    const handleTheme = () => {
+        const body = document.querySelector('body');
+        // body.style.background = "#808080";
+        if (body.style.backgroundColor.toString() === "rgb(53, 53, 53)") {
+            body.style.backgroundColor = "white";
+            body.style.color = "black";
+            setButtonState("Dark");
+        }
+        else {
+            body.style.backgroundColor = "rgb(53,53,53)";
+            body.style.color = "white";
+            setButtonState("Light");
+        }
+        // console.log(body.style.background.toString()); // yhis i used to check what strig
+    }
+
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">{props.title}</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,9 +36,9 @@ export default function Navbar(props) {
                                 <a className="nav-link" href="/">About</a>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
+
+                        <form className="d-flex">
+                            <div className="btn btn-primary mx-2" onClick={handleTheme}>Theme to {buttonState}</div>
                         </form>
                     </div>
                 </div>
