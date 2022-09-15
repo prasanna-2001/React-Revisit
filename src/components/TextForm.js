@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import '../App.css';
 
 export default function TextForm(props) {
     const ipStyle = {
@@ -70,14 +70,16 @@ export default function TextForm(props) {
                 <div className="mb-3">
                     <textarea className="form-control" id="mybox" rows="3" onChange={handleOnChange} value={text}></textarea>
                 </div>
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleOnReslicked}>Reset</div>
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleOnUClicked}>Convert to UpperCase</div>
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleOnLcClicked}>Convert to LowerCase</div>
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleOnCapClicked}>Capitalise each Word</div>
-                <input className="form-control my-2 mx-2" style={ipStyle} type="find" onChange={handleOnChangef} value={fword} aria-label="find" />
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleFind}>Find</div>
-                <input className="form-control my-2 mx-2" style={ipStyle} type="replace" onChange={handleOnChanger} value={rword} aria-label="find" />
-                <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} mx-2`} onClick={handleReplace}>Replace</div>
+                <div className="buttonSet">
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} onClick={handleOnReslicked}>Reset</div>
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} onClick={handleOnUClicked}>Convert to UpperCase</div>
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} onClick={handleOnLcClicked}>Convert to LowerCase</div>
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} onClick={handleOnCapClicked}>Capitalise each Word</div>
+                    <input className="form-control my-2 mx-2" style={ipStyle} type="find" my-2 onChange={handleOnChangef} value={fword} aria-label="find" />
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'} my-2 mx-2`} onClick={handleFind}>Find</div>
+                    <input className="form-control my-2 mx-2" style={ipStyle} type="replace" onChange={handleOnChanger} value={rword} aria-label="find" />
+                    <div className={`btn btn-${props.mode === 'light' ? 'dark' : 'light'}my-2  my-2 mx-2`} onClick={handleReplace}>Replace</div>
+                </div>
 
             </div>
             <div className="container my-3">
